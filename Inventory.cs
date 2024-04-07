@@ -45,5 +45,20 @@ namespace InventoryManager
         {
             productItems.RemoveAt(index);
         }
+
+        public void UpdateItem(int index)
+        {
+            Console.WriteLine("SKU: ");
+            productItems[index].SKU = Console.ReadLine();
+            Console.WriteLine("Name: ");
+            productItems[index].ItemName = Console.ReadLine();
+            Console.WriteLine("Description: ");
+            productItems[index].Description = Console.ReadLine();
+            Console.WriteLine("Price: ");
+            productItems[index].Price= Convert.ToDecimal(Console.ReadLine());
+            Console.WriteLine("Quantity: ");
+            productItems[index].Quantity = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Item sucessfully updated");
+        }
     }
 }

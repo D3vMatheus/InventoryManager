@@ -12,3 +12,4 @@ C:\Users\mathe\source\repos\InventoryManager\InventoryManager\obj\Debug\net8.0\r
 C:\Users\mathe\source\repos\InventoryManager\InventoryManager\obj\Debug\net8.0\InventoryManager.pdb
 C:\Users\mathe\source\repos\InventoryManager\InventoryManager\obj\Debug\net8.0\InventoryManager.genruntimeconfig.cache
 C:\Users\mathe\source\repos\InventoryManager\InventoryManager\obj\Debug\net8.0\ref\InventoryManager.dll
+C:\Users\mathe\source\repos\InventoryManager\InventoryManager\obj\Debug\net8.0\InventoryManager.sourcelink.json

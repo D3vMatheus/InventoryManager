@@ -16,6 +16,7 @@ do
     Console.WriteLine("What you want to do? ");
     Console.WriteLine("1-List inventory");
     Console.WriteLine("2-Add item to the inventory");
+    Console.WriteLine("3-Update inventory item");
     Console.WriteLine("4-Remove item to the inventory");
     Console.WriteLine("9-Exit");
 
@@ -39,8 +40,13 @@ do
             ProductItem item = new ProductItem(sku, name, description, Convert.ToDecimal(price), Convert.ToInt32(quantity));
             inventory.AddItem(item);
             break;
+        case "3":
+            Console.WriteLine("Insert item index to update products: ");
+            int index2 = Convert.ToInt32(Console.ReadLine());
+            inventory.UpdateItem(index2);
+            break;
         case "4":
-            Console.WriteLine("Insert SKU to remove products: ");
+            Console.WriteLine("Insert item index to remove products: ");
             int index = Convert.ToInt32(Console.ReadLine());
             inventory.RemoveItem(index);
             break;
