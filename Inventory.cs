@@ -9,56 +9,50 @@ namespace InventoryManager
 {
     public class Inventory
     {
-        private readonly List<ProductItem> productItems;
+        private readonly List<Item> ListItems;
 
         public Inventory()
         {
-            productItems = new List<ProductItem>();
+            ListItems = new List<Item>();
         }
 
-        public void AddItem(ProductItem item)
+
+        public void AddItem(Item item)
         {
-            ProductItem newItem = new ProductItem
+            
+            Item newItem = new Item
             {
                 SKU = item.SKU,
-                ItemName = item.ItemName,
+                Name = item.Name,
                 Description= item.Description,
                 Price= item.Price,
                 Quantity= item.Quantity,
 
             };
-            productItems.Add(newItem);
+            ListItems.Add(newItem);
         }
 
         public void ShowItems() {
             
-            foreach (var item in productItems) {
+            foreach (var item in ListItems) {
                 Console.WriteLine($"\nSKU: {item.SKU}");
-                Console.WriteLine($"Name: {item.ItemName}");
+                Console.WriteLine($"Name: {item.Name}");
                 Console.WriteLine($"Description: {item.Description}");
                 Console.WriteLine($"Price: {item.Price}");
                 Console.WriteLine($"Quantity in stock: {item.Quantity}");
+                Console.WriteLine("_______________________________________");
 
             }
         }
         public void RemoveItem(int index)
         {
-            productItems.RemoveAt(index);
+            ListItems.RemoveAt(index);
         }
 
-        public void UpdateItem(int index)
+        public void UpdateItem(string sku)
         {
-            Console.WriteLine("SKU: ");
-            productItems[index].SKU = Console.ReadLine();
-            Console.WriteLine("Name: ");
-            productItems[index].ItemName = Console.ReadLine();
-            Console.WriteLine("Description: ");
-            productItems[index].Description = Console.ReadLine();
-            Console.WriteLine("Price: ");
-            productItems[index].Price= Convert.ToDecimal(Console.ReadLine());
-            Console.WriteLine("Quantity: ");
-            productItems[index].Quantity = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Item sucessfully updated");
+            Console.WriteLine(ListItems.Find(p => p.SKU.Contains(sku)));
+            
         }
     }
 }

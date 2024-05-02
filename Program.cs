@@ -1,16 +1,13 @@
 ﻿using InventoryManager;
 using System.Collections;
+using System.ComponentModel;
 
-string? sku = "";
-string? name = "";
-string? description = "";
-string? price = "";
-string? quantity = "";
 Inventory inventory = new Inventory();
 
 Console.WriteLine("Welcome to Inventory Manager v1.0");
-Console.WriteLine("Press any key: ");
+Console.WriteLine("Press any key to initialize the aplication: ");
 string exit = Console.ReadLine();
+
 do
 {
     Console.WriteLine("What you want to do? ");
@@ -27,28 +24,20 @@ do
             inventory.ShowItems();
             break;
         case "2":
-            Console.WriteLine("Insert SKU");
-            sku = Console.ReadLine();
-            Console.WriteLine("Insert Name");
-            name = Console.ReadLine();
-            Console.WriteLine("Insert Description");
-            description = Console.ReadLine();
-            Console.WriteLine("Insert Price");
-            price = Console.ReadLine();
-            Console.WriteLine("Insert Quantity");
-            quantity = Console.ReadLine();
-            ProductItem item = new ProductItem(sku, name, description, Convert.ToDecimal(price), Convert.ToInt32(quantity));
-            inventory.AddItem(item);
+            Item item = new();
+            inventory.AddItem(item.CreateItem());
             break;
         case "3":
-            Console.WriteLine("Insert item index to update products: ");
-            int index2 = Convert.ToInt32(Console.ReadLine());
-            inventory.UpdateItem(index2);
+            Console.WriteLine("Insert item sku to update products: ");
+            Item updatedItem = new();
+            string index = Console.ReadLine();
+            inventory.UpdateItem(index);
             break;
         case "4":
-            Console.WriteLine("Insert item index to remove products: ");
-            int index = Convert.ToInt32(Console.ReadLine());
-            inventory.RemoveItem(index);
+            Console.WriteLine("Insert item SKU to remove products: ");
+            int removedItem = Convert.ToInt32(Console.ReadLine());
+            inventory.RemoveItem(removedItem);
+
             break;
         case "9":
             Console.WriteLine("Exit? YES/NO");
@@ -61,5 +50,5 @@ do
 
 
 
-ProductItem newitem = new ProductItem("124812", "tablet", "tablet samsung", 999.99m, 20);
+Item newitem = new Item("124812", "tablet", "tablet samsung", 999.99m, 20);
 inventory.AddItem(newitem);
