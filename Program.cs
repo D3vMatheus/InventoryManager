@@ -28,13 +28,13 @@ do
             inventory.AddItem(item.CreateItem());
             break;
         case "3":
-            Console.WriteLine("Insert item sku to update products: ");
+            Console.WriteLine("Insert item SKU to update products: ");
             Item updatedItem = new();
             string index = Console.ReadLine();
             inventory.UpdateItem(index);
             break;
         case "4":
-            Console.WriteLine("Insert item SKU to remove products: ");
+            Console.WriteLine("Insert item index to remove products: ");
             int removedItem = Convert.ToInt32(Console.ReadLine());
             inventory.RemoveItem(removedItem);
 
@@ -46,9 +46,3 @@ do
     }
 
 } while (exit.ToUpper() != "YES");
-
-
-
-
-Item newitem = new Item("124812", "tablet", "tablet samsung", 999.99m, 20);
-inventory.AddItem(newitem);
